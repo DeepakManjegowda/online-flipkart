@@ -91,7 +91,7 @@ const Home = () => {
             return (
               <div
                 key={item.id}
-                className="flex flex-col items-center w-60 text-center bg-white"
+                className="flex flex-col items-center cursor-pointer  w-60 text-center bg-white"
                 onClick={() => handleChange(item)}
               >
                 <div className="w-3/5 h-1/2 mt-4">

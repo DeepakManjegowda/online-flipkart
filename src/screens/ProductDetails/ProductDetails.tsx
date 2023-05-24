@@ -7,41 +7,39 @@ import { updateCart, updateCounter } from "../../redux/Actions";
 const ProductDetails = () => {
   let { id, category } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const getcart: [] = useSelector((state: any) => state.getCart);
-  console.log(getcart);
-
   const product: any = products.find((obj) => obj.id === Number(id));
   const categories: any = products.filter((obj) => obj.category === category);
-
   const offPrecentage =
     ((product?.original_price - product?.price) / product?.original_price) *
     100;
-  const navigate = useNavigate();
 
   const handleChange = (item: any) => {
     navigate(`/product/${item.id}/${item.category}`);
   };
   function cartHandler(prod: any): void {
     dispatch(updateCart([...getcart, prod]));
+    navigate("/cart");
   }
 
   return (
     <>
       <div className="flex flex-col md:flex-row gap-7 md:p-2 ">
         <div className="flex flex-col md:mx-10 md:mr-2 w-full md:w-4/6">
-          <div className="flex flex-row items-center justify-center mb-10 w-full md:w-96 h-96">
+          <div className="flex flex-row px-2 items-center justify-center mb-10 w-full md:w-96 h-96">
             <img src={product?.img} alt="prod img" className="mt-6" />
           </div>
           <div className="mx-2 flex items-center justify-around mb-3 text-center text-white gap-2">
             <div
-              className="flex gap-3 items-center justify-center w-6/12 py-3 bg-amber-500 "
+              className="flex gap-3 items-center cursor-pointer justify-center w-6/12 py-3 bg-amber-500 "
               onClick={() => {
                 cartHandler(product);
               }}
             >
               <FaShoppingCart /> ADD TO CART
             </div>
-            <div className="flex gap-3 items-center justify-center w-6/12 py-3 bg-orange-500 ">
+            <div className="cursor-pointer flex gap-3 items-center justify-center w-6/12 py-3 bg-orange-500 ">
               BUY NOW
             </div>
           </div>
@@ -82,12 +80,12 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="mx-10 mt-5">
-        <div className="flex flex-col   md:flex-row">
+        <div className="flex flex-col md:flex-row">
           {categories.map((item: any, index: number) => {
             return (
               <div
                 key={item.id}
-                className="flex flex-col md:border-0 border-b-2 border-slate-300 items-center w-72 text-center bg-white"
+                className="flex cursor-pointer flex-col md:border-0 border-b-2 border-slate-300 items-center w-72 text-center bg-white"
                 onClick={() => handleChange(item)}
               >
                 <div className="w-3/5 h-1/2 mt-4 object-fill">

@@ -43,7 +43,7 @@ const Navbar = () => {
             <div className="ml-2 ">
               <PopOver category={category} text="More" />
             </div>
-            <div className="flex items-center ">
+            <div className="flex items-center cursor-pointer ">
               <div className="m-1">
                 <FaShoppingCart />
               </div>
