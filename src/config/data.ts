@@ -35,7 +35,7 @@ export const products = [
     category: "electronic",
     img: realmeBuds,
     logo: "img",
-
+    quantity: 0,
     offers: [
       "Special PriceGet extra ₹130 off (price inclusive of discount)T&C",
 
@@ -56,6 +56,7 @@ export const products = [
     category: "fashion",
     img: reebook_shoe,
     logo: "",
+    quantity: 0,
     offers: [
       "Special PriceGet extra ₹130 off (price inclusive of discount)T&C",
 
@@ -77,6 +78,7 @@ export const products = [
     category: "home",
     img: filpkart_bottle,
     logo: "",
+    quantity: 0,
     offers: [
       "Special PriceGet extra ₹130 off (price inclusive of discount)T&C",
 
@@ -97,6 +99,7 @@ export const products = [
     img: poco_x3,
     category: "mobile",
     logo: "",
+    quantity: 0,
     device_ram: 3,
     offers: [
       "Special PriceGet extra ₹130 off (price inclusive of discount)T&C",
@@ -126,6 +129,7 @@ export const products = [
     rating: "4.3",
     reviews: 2440,
     price: 29999,
+    quantity: 0,
     original_price: 49999,
     category: "appliance",
     img: mi_tv,
@@ -150,6 +154,7 @@ export const products = [
     original_price: 22490,
     category: "appliance",
     img: washing_machine,
+    quantity: 0,
     logo: "",
     offers: [
       "Bank Offer10% off on Citi Credit Card EMI Transactions, up to ₹2,000 on orders of ₹5,000 and aboveT&C",
@@ -171,6 +176,7 @@ export const products = [
     category: "home",
     img: pressure_cooker,
     logo: "",
+    quantity: 0,
     offers: [
       "Special PriceGet extra ₹130 off (price inclusive of discount)T&C",
 
@@ -193,6 +199,7 @@ export const products = [
 
     img: key_holder,
     logo: "",
+    quantity: 0,
     offers: [
       "Special PriceGet extra 40% off (price inclusive of cashback/coupon)T&C",
 
@@ -213,6 +220,7 @@ export const products = [
     category: "fashion",
     img: men_shirt,
     logo: "",
+    quantity: 0,
     offers: [
       "Bank Offer10% off on Citi Credit Card EMI Transactions, up to ₹2,000 on orders of ₹5,000 and aboveT&C  ",
 
@@ -230,6 +238,7 @@ export const products = [
     reviews: 117,
     price: 57990,
     original_price: 66995,
+    quantity: 0,
     category: "electronic",
     img: canoncamera,
     logo: "img",
@@ -250,6 +259,7 @@ export const products = [
     product_name: "POCO M3(Power Black, 128 GB)",
     rating: "3.8",
     reviews: 117,
+    quantity: 0,
     price: 11099,
     original_price: 14000,
     img: poco_m3,
@@ -284,9 +294,11 @@ export const products = [
     price: 10999,
     original_price: 12599,
     img: realme_c55,
+    quantity: 0,
     category: "mobile",
     logo: "",
     device_ram: 6,
+
     offers: [
       "Special PriceGet extra ₹130 off (price inclusive of discount)T&C",
 
@@ -315,6 +327,7 @@ export const products = [
     price: 6990,
     original_price: 1199,
     img: boat_speaker,
+    quantity: 0,
     category: "electronic",
     logo: "",
     offers: [
@@ -335,6 +348,7 @@ export const products = [
     price: 999,
     original_price: 1200,
     img: powerbank,
+    quantity: 0,
     category: "electronic",
     logo: "",
     offers: [
@@ -356,6 +370,7 @@ export const products = [
     price: 79500,
     original_price: 81900,
     img: apple_ipad,
+    quantity: 0,
     category: "mobile",
     logo: "",
     offers: [
@@ -386,6 +401,7 @@ export const products = [
     price: 1099,
     original_price: 2300,
     img: leeskin_pants,
+    quantity: 0,
     category: "fashion",
     logo: "",
     offers: [
@@ -408,6 +424,7 @@ export const products = [
     img: metronaut,
     category: "fashion",
     logo: "",
+    quantity: 0,
     offers: [
       "Special PriceGet extra ₹130 off (price inclusive of discount)T&C",
 
@@ -425,6 +442,7 @@ export const products = [
     reviews: 117,
     price: 499,
     original_price: 1000,
+    quantity: 0,
     img: allen_tshirt,
     category: "fashion",
     logo: "",
@@ -448,6 +466,7 @@ export const products = [
     img: killer_jeans,
     category: "fashion",
     logo: "",
+    quantity: 0,
     offers: [
       "Special PriceGet extra ₹130 off (price inclusive of discount)T&C",
 
@@ -465,6 +484,7 @@ export const products = [
     reviews: 117,
     price: 13949,
     original_price: 15000,
+    quantity: 0,
     img: realme_tv,
     category: "appliance",
     logo: "",
@@ -495,6 +515,7 @@ export const products = [
       "Mi 4A PRO 80 cm (32 inch) HD Ready LED Smart Android TV with Google Data Saver",
     rating: "1.4",
     reviews: 117,
+    quantity: 0,
     price: 14449,
     original_price: 16000,
     img: mi_4pro,
@@ -526,6 +547,7 @@ export const products = [
     product_name: "SAMSUNG 80 cm (32 inch) HD Ready LED Smart TV 2020 Edition",
     rating: "4.7",
     reviews: 117,
+    quantity: 0,
     price: 16649,
     original_price: 20000,
     img: samsung_tv,
@@ -556,6 +578,7 @@ export const products = [
     id: 4,
     product_name: "MILTON Executive Lunch 3 Containers Lunch Box",
     rating: "4.4",
+    quantity: 0,
     reviews: 117,
     price: 299,
     original_price: 500,

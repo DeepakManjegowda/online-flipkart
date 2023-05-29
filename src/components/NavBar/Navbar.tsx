@@ -3,10 +3,11 @@ import logoImg from "../../assets/images/flipkartLogo.png";
 import { CiSearch } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
 import PopOver from "../PopOver";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const category = [
     {
       name: "Performance",
@@ -43,7 +44,10 @@ const Navbar = () => {
             <div className="ml-2 ">
               <PopOver category={category} text="More" />
             </div>
-            <div className="flex items-center cursor-pointer ">
+            <div
+              className="flex items-center cursor-pointer "
+              onClick={() => navigate("/cart")}
+            >
               <div className="m-1">
                 <FaShoppingCart />
               </div>

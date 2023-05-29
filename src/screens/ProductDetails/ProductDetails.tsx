@@ -3,24 +3,30 @@ import { products } from "../../config/data";
 import { FaShoppingCart, FaStar, FaTag } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCart, updateCounter } from "../../redux/Actions";
+import ProductsProps from "../../config/products";
 
 const ProductDetails = () => {
   let { id, category } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const getcart: [] = useSelector((state: any) => state.getCart);
-  const product: any = products.find((obj) => obj.id === Number(id));
-  const categories: any = products.filter((obj) => obj.category === category);
+  const getcart: ProductsProps[] = useSelector((state: any) => state.getCart);
+  const product: ProductsProps = products.find((obj) => obj.id === Number(id))!;
+  const categories = products.filter((obj) => obj.category === category);
   const offPrecentage =
-    ((product?.original_price - product?.price) / product?.original_price) *
-    100;
+    ((product.original_price - product.price) / product.original_price) * 100;
 
   const handleChange = (item: any) => {
     navigate(`/product/${item.id}/${item.category}`);
   };
-  function cartHandler(prod: any): void {
-    dispatch(updateCart([...getcart, prod]));
-    navigate("/cart");
+  function cartHandler(prod: ProductsProps): void {
+    prod.offer_percentage = Math.floor(offPrecentage);
+    if (prod.quantity === 0) {
+      prod.quantity = 1;
+      dispatch(updateCart([...getcart, prod]));
+      navigate("/cart");
+    } else {
+      navigate("/cart");
+    }
   }
 
   return (
@@ -37,7 +43,15 @@ const ProductDetails = () => {
                 cartHandler(product);
               }}
             >
-              <FaShoppingCart /> ADD TO CART
+              {product.quantity > 0 ? (
+                <>
+                  <FaShoppingCart /> GO TO CART
+                </>
+              ) : (
+                <>
+                  <FaShoppingCart /> ADD TO CART
+                </>
+              )}
             </div>
             <div className="cursor-pointer flex gap-3 items-center justify-center w-6/12 py-3 bg-orange-500 ">
               BUY NOW

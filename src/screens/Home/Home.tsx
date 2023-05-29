@@ -94,8 +94,12 @@ const Home = () => {
                 className="flex flex-col items-center cursor-pointer  w-60 text-center bg-white"
                 onClick={() => handleChange(item)}
               >
-                <div className="w-3/5 h-1/2 mt-4">
-                  <img src={item.img} alt="item img" className="object-cover" />
+                <div className="w-3/5 h-1/2 mt-4 object-contain">
+                  <img
+                    src={item.img}
+                    alt="item img"
+                    className="w-full h-full"
+                  />
                 </div>
                 <div className="mt-2 mb-1 line-clamp-2">
                   {item.product_name}

@@ -1,8 +1,9 @@
 import { AnyAction } from "redux";
 import { CART, COUNTER } from "../Actions";
+import ProductsProps from "../../config/products";
 
 export interface ReducerInitialState {
-  getCart: any;
+  getCart: ProductsProps[];
   counter: number;
 }
 
