@@ -9,8 +9,8 @@ const ProductDetails = () => {
   let { id, category } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const getcart: ProductsProps[] = useSelector((state: any) => state.getCart);
-  const product: ProductsProps = products.find((obj) => obj.id === Number(id))!;
+  const getcart: [] = useSelector((state: any) => state.getCart);
+  const product: any = products.find((obj) => obj.id === Number(id))!;
   const categories = products.filter((obj) => obj.category === category);
   const offPrecentage =
     ((product.original_price - product.price) / product.original_price) * 100;
@@ -18,7 +18,7 @@ const ProductDetails = () => {
   const handleChange = (item: any) => {
     navigate(`/product/${item.id}/${item.category}`);
   };
-  function cartHandler(prod: ProductsProps): void {
+  function cartHandler(prod: any): void {
     prod.offer_percentage = Math.floor(offPrecentage);
     if (prod.quantity === 0) {
       prod.quantity = 1;

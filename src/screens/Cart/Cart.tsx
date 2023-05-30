@@ -1,17 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProductsProps from "../../config/products";
 import { products } from "../../config/data";
+import { updateCart, updateElement } from "../../redux/Actions";
+import { useEffect } from "react";
 
 const Cart = () => {
   const getcart: any = useSelector((state: any) => state.getCart);
 
-  const addCartHandler = (item: ProductsProps) => {
-    const product: any = products.find((obj) => obj.id === Number(item.id));
-    console.log("item", item);
-    console.log("product", product);
-    item.quantity += 1;
-    item.price += product.price;
-    item.original_price += product.original_price;
+  const cartHandler = (item: any, typeCart: string) => {
+    console.log("getCart", getcart);
+    if (typeCart === "add") {
+      item.quantity += 1;
+    } else {
+      item.quantity -= 1;
+    }
   };
 
   return (
@@ -29,11 +31,16 @@ const Cart = () => {
                     <img src={item.img} className="w-24 md:w-auto md:h-36" />
                   </div>
                   <div className="flex felx-row text-center gap-4 text-lg font-semibold">
-                    <div className="px-2 rounded-full border-2">-</div>
-                    <div className="px-4 border-2 ">1</div>
                     <div
                       className="px-2 rounded-full border-2"
-                      onClick={() => addCartHandler(item)}
+                      onClick={() => cartHandler(item, "remove")}
+                    >
+                      -
+                    </div>
+                    <div className="px-4 border-2 ">{item.quantity}</div>
+                    <div
+                      className="px-2 rounded-full border-2"
+                      onClick={() => cartHandler(item, "add")}
                     >
                       +
                     </div>
@@ -49,9 +56,11 @@ const Cart = () => {
                   </div>
                   <div className="flex md:mt-8 items-center gap-3">
                     <div className="text-gray-400 font-medium ">
-                      <del>₹{item?.original_price}</del>
+                      <del>₹{item.quantity * item?.original_price}</del>
                     </div>
-                    <div className="text-xl font-medium">₹{item?.price}</div>
+                    <div className="text-xl font-medium">
+                      ₹{item.quantity * item?.price}
+                    </div>
                     <div className="text-green-600 font-medium">
                       {item.offer_percentage} % off
                     </div>

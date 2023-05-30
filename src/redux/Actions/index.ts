@@ -1,5 +1,6 @@
 export const CART = "CART";
 export const COUNTER = "COUNTER";
+export const UPDATE_ELEMENT = "UPDATE_ELEMENT";
 
 export function updateCart(data: any) {
   return {
@@ -14,3 +15,9 @@ export function updateCounter(data: number) {
     payload: data,
   };
 }
+export const updateElement = (data: any) => {
+  return {
+    type: UPDATE_ELEMENT,
+    payload: data,
+  };
+};
