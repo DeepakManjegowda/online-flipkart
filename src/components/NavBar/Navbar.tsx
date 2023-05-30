@@ -54,7 +54,7 @@ const Navbar = () => {
                 <div className="absolute text-center bg-redorange text-white h-5 w-4 rounded-md left-2 -top-4">{getcart.length}</div>
               </div>
               
-              <div className="ml-2">Cart </div>
+              <div className="ml-2">Cart</div>
             </div>
           </div>
         </div>
