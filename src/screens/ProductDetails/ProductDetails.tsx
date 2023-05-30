@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../../config/data";
 import { FaShoppingCart, FaStar, FaTag } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCart, updateCounter } from "../../redux/Actions";
+import { addCart, updateQuantity } from "../../redux/Actions";
 import ProductsProps from "../../config/products";
 
 const ProductDetails = () => {
@@ -10,6 +10,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const getcart: [] = useSelector((state: any) => state.getCart);
+
   const product: any = products.find((obj) => obj.id === Number(id))!;
   const categories = products.filter((obj) => obj.category === category);
   const offPrecentage =
@@ -22,7 +23,8 @@ const ProductDetails = () => {
     prod.offer_percentage = Math.floor(offPrecentage);
     if (prod.quantity === 0) {
       prod.quantity = 1;
-      dispatch(updateCart([...getcart, prod]));
+      dispatch(addCart([...getcart, prod]));
+      dispatch(updateQuantity(1));
       navigate("/cart");
     } else {
       navigate("/cart");

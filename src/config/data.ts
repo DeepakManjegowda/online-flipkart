@@ -324,7 +324,7 @@ export const products = [
     product_name: "BoAt Stone 1500 40 W Bluetooth Speaker",
     rating: "4.3",
     reviews: 117,
-    price: 6990,
+    price: 699,
     original_price: 1199,
     img: boat_speaker,
     quantity: 0,

@@ -18,10 +18,11 @@ const Navbar = () => {
       url: "profile",
     },
   ];
-  const counter = useSelector((state: any) => state.counter);
+  const getcart: any = useSelector((state: any) => state.getCart);
+
   return (
     <>
-      <div className="py-3 bg-blue-500 text-white">
+      <div className="py-3 bg-blue-500 text-white sticky top-0">
         <div className="flex justify-center gap-4 items-center">
           <div className="flex flex-col">
             <img src={logoImg} className="h-5" />
@@ -51,7 +52,7 @@ const Navbar = () => {
               <div className="m-1">
                 <FaShoppingCart />
               </div>
-              <div>Cart {counter}</div>
+              <div>Cart {getcart.length}</div>
             </div>
           </div>
         </div>
