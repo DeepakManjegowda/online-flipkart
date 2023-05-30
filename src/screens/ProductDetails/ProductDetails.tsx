@@ -40,7 +40,7 @@ const ProductDetails = () => {
           </div>
           <div className="mx-2 flex items-center justify-around mb-3 text-center text-white gap-2">
             <div
-              className="flex gap-3 items-center cursor-pointer justify-center w-6/12 py-3 bg-amber-500 "
+              className="flex gap-3 items-center cursor-pointer justify-center w-6/12 py-3  bg-yelloworange"
               onClick={() => {
                 cartHandler(product);
               }}
@@ -55,7 +55,7 @@ const ProductDetails = () => {
                 </>
               )}
             </div>
-            <div className="cursor-pointer flex gap-3 items-center justify-center w-6/12 py-3 bg-orange-500 ">
+            <div className="cursor-pointer flex gap-3 items-center justify-center w-6/12 py-3 bg-redorange ">
               BUY NOW
             </div>
           </div>

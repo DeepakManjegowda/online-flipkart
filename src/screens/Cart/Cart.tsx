@@ -101,7 +101,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <div className=" p-6 bg-white  h-80 md:w-1/5">
+        <div className="sticky top-20 p-6 bg-white  h-80 md:w-1/5">
           <div className="text-gray-300">PRICE DETAILS</div>
           <div className="flex flex-col mt-5 border-b-2">
             <div className="flex justify-between mb-4">

@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="py-3 bg-blue-500 text-white sticky top-0">
+      <div className="py-3 bg-blue-500 text-white sticky top-0 z-50">
         <div className="flex justify-center gap-4 items-center">
           <div className="flex flex-col">
             <img src={logoImg} className="h-5" />
@@ -49,10 +49,12 @@ const Navbar = () => {
               className="flex items-center cursor-pointer "
               onClick={() => navigate("/cart")}
             >
-              <div className="m-1">
+              <div className="m-1 relative">
                 <FaShoppingCart />
+                <div className="absolute text-center bg-redorange text-white h-5 w-4 rounded-md left-2 -top-4">{getcart.length}</div>
               </div>
-              <div>Cart {getcart.length}</div>
+              
+              <div className="ml-2">Cart </div>
             </div>
           </div>
         </div>
