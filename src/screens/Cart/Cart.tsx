@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import ProductsProps from "../../config/products";
 import { products } from "../../config/data";
-import { useEffect } from "react";
 
 const Cart = () => {
   const getcart: any = useSelector((state: any) => state.getCart);
