@@ -82,11 +82,7 @@ const Home = () => {
         })}
       </div>
       <div className="flex flex-row mx-1 py-1 gap-2 h-72">
-        <div className="flex flex-col items-center w-60  bg-blue-200">
-          <div className="mt-12 text-2xl mb-4">Top Offers</div>
-          <div className="bg-blue-600 w-24 text-center py-2">View All</div>
-        </div>
-        <div className="flex flex-row">
+        <div className="flex flex-wrap">
           {products.map((item: any, index: number) => {
             return (
               <div
