@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const [count, setCount] = useState("");
   const category = [
     {
       name: "Performance",
@@ -36,6 +37,7 @@ const Navbar = () => {
               className="w-4 md:w-96  outline-none"
               placeholder="search products"
               type="text"
+              onChange={(e) => setCount(e.target.value)}
             />
             <div className=" text-black">
               <CiSearch size={25} />
@@ -64,7 +66,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <Outlet />
+      <Outlet context={count} />
     </>
   );
 };
