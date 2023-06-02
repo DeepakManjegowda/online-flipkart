@@ -7,20 +7,22 @@ import {
   saveLaterToCart,
   removeCart,
 } from "../../redux/Actions";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { products } from "../../config/data";
+import SnackBar from "../../components/SnackBar/SnackBar";
 
 const Cart = () => {
   const [isRemove, setIsRemove] = useState(false);
   const [removeElement, setRemoveElement] = useState(0);
   const [removeType, setRemoveType] = useState("");
+  const [showToast, setShowToast] = useState({ val: false, msg: "" });
+
   const navigate = useNavigate();
-  const getcart: any = useSelector((state: any) => state.getCart);
+  const getcart: ProductsProps[] = useSelector((state: any) => state.getCart);
   const saveLater: any = useSelector((state: any) => state.saveLater);
   var actualTotalPrice = 0;
   var totalPrice = 0;
-
   const dispatch = useDispatch();
   const cartHandler = (cartItem: any, typeCart: string) => {
     const updatedCart = getcart.map((item: any) => {
@@ -44,6 +46,10 @@ const Cart = () => {
 
   const saveLaterHandler = (cartItem: any) => {
     dispatch(updateSaveLater(cartItem.id));
+    setShowToast({
+      val: true,
+      msg: `'${cartItem.product_name}' has been Saved for later'`,
+    });
   };
   const movetToCartHandler = (cartItemId: number) => {
     dispatch(saveLaterToCart(cartItemId));
@@ -90,14 +96,31 @@ const Cart = () => {
                           className={`px-2 ${
                             item.quantity > 1 ? "" : "text-gray-300"
                           } rounded-full border-2 cursor-pointer`}
-                          onClick={() => cartHandler(item, "remove")}
+                          onClick={() => {
+                            cartHandler(item, "remove");
+                            item.quantity > 1 &&
+                              setShowToast({
+                                val: true,
+                                msg: `You have changed '${
+                                  item.product_name
+                                }' QUANTITY to '${item.quantity - 1}'`,
+                              });
+                          }}
                         >
                           -
                         </div>
                         <div className="px-4 border-2 ">{item.quantity}</div>
                         <div
                           className="px-2 rounded-full border-2 cursor-pointer"
-                          onClick={() => cartHandler(item, "add")}
+                          onClick={() => {
+                            cartHandler(item, "add");
+                            setShowToast({
+                              val: true,
+                              msg: `You have changed '${
+                                item.product_name
+                              }' QUANTITY to '${item.quantity + 1}'`,
+                            });
+                          }}
                         >
                           +
                         </div>
@@ -233,7 +256,13 @@ const Cart = () => {
                       <div className="mt-3 md:mt-8 flex gap-6 md:text-lg font-semibold">
                         <div
                           className="cursor-pointer"
-                          onClick={() => movetToCartHandler(item.id)}
+                          onClick={() => {
+                            movetToCartHandler(item.id);
+                            setShowToast({
+                              val: true,
+                              msg: `'${item.product_name}' has been moved to your Cart'`,
+                            });
+                          }}
                         >
                           MOVE TO CART
                         </div>
@@ -254,6 +283,7 @@ const Cart = () => {
               })}
             </div>
           )}
+          <SnackBar showToast={showToast} setShowToast={setShowToast} />
         </div>
         {getcart.length > 0 && (
           <div className="sticky top-20 p-6 bg-white h-80 md:w-1/5">

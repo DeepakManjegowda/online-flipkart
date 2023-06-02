@@ -99,7 +99,7 @@ const Home = () => {
               </div>
               <div
                 className={`${
-                  activeCategory == item.name.toLowerCase()
+                  activeCategory === item.name.toLowerCase()
                     ? "text-blue-400"
                     : ""
                 }`}

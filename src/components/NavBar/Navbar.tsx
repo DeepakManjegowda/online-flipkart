@@ -27,9 +27,9 @@ const Navbar = () => {
         <div className="flex justify-center gap-4 items-center">
           <div
             className="flex flex-col cursor-pointer"
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/")}
           >
-            <img src={logoImg} className="h-5" />
+            <img src={logoImg} alt="logo img" className="h-5" />
             <div className="text-sm">Explore plus</div>
           </div>
           <div className="p-2 bg-white md:flex text-black">

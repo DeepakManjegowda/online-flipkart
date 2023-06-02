@@ -11,7 +11,7 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const getcart: [] = useSelector((state: any) => state.getCart);
 
-  const product: any = products.find((obj) => obj.id === Number(id))!;
+  const product: ProductsProps = products.find((obj) => obj.id === Number(id))!;
   const categories = products.filter((obj) => obj.category === category);
   const offPrecentage =
     ((product.original_price - product.price) / product.original_price) * 100;
