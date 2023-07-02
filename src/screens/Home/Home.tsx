@@ -151,7 +151,7 @@ const Home = () => {
                   className="w-80 h-60"
                 />
               </div>
-              <div className="text-xl font-medium">
+              <div className="text-xl font-medium text-center">
                 Sorry, items not found here!
               </div>
               <div className="text-center">

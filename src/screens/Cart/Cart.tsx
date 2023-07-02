@@ -16,7 +16,7 @@ const Cart = () => {
   const [isRemove, setIsRemove] = useState(false);
   const [removeElement, setRemoveElement] = useState(0);
   const [removeType, setRemoveType] = useState("");
-  const [showToast, setShowToast] = useState({ val: false, msg: "" });
+  const [showToast, setShowToast] = useState({ val: false, msg: "" });///git clone
 
   const navigate = useNavigate();
   const getcart: ProductsProps[] = useSelector((state: any) => state.getCart);
